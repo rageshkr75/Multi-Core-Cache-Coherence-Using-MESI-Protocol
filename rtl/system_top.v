@@ -159,9 +159,7 @@ module system_top #(
         .mem_data_in  (mem_read_data)
     );
 
-    // CRITICAL: Restore the exact working memory write logic from the 1-Way Model!
-    // The 7-cycle write issue actually didn't break functionality, it just looked ugly in the logs.
-    // By forcing the write, we guarantee the memory outputs the correct read data back to the bus!
+   
     wire final_mem_we = ctrl_mem_we | any_flush;
 
     assign ext_mem_we    = final_mem_we;
